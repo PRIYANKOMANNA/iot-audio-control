@@ -4,13 +4,14 @@ const USERS = {
 };
 
 function login() {
-  const u = user.value;
-  const p = pass.value;
+  const u = document.getElementById("user").value;
+  const p = document.getElementById("pass").value;
 
   if (USERS[u] === p) {
     localStorage.setItem("login", "yes");
-    login.style.display = "none";
-    panel.style.display = "block";
+
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("panel").style.display = "block";
   } else {
     alert("Invalid login");
   }
@@ -18,7 +19,7 @@ function login() {
 
 function checkLogin() {
   if (localStorage.getItem("login") === "yes") {
-    login.style.display = "none";
-    panel.style.display = "block";
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("panel").style.display = "block";
   }
 }
