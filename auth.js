@@ -3,9 +3,11 @@ const USERS = {
   operator: "0000"
 };
 
-function login() {
+function loginUser() {
   const u = document.getElementById("user").value;
   const p = document.getElementById("pass").value;
+
+  console.log("Login clicked", u, p);
 
   if (USERS[u] === p) {
     localStorage.setItem("login", "yes");
