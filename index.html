@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IoT Audio Control</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script src="auth.js"></script>
+<script src="app.js"></script>
+<script src="schedule.js"></script>
+<script src="tts.js"></script>
+</head>
+
+<body onload="checkLogin()">
+
+<div id="login">
+  <h2>🔐 Login</h2>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<div id="panel" style="display:none">
+  <h1>🔊 One-Tap Audio Control</h1>
+
+  <button onclick="playBoth()">▶ Play Home + Shop</button>
+  <button onclick="pauseBoth()">⏸ Pause</button>
+
+  <label>Volume</label>
+  <input type="range" min="0" max="100" value="50"
+         oninput="setVolume(this.value)">
+
+  <hr>
+
+  <button onclick="announceMP3()">📢 MP3 Announcement</button>
+
+  <button onclick="announceTTS(
+    'দোকান বন্ধ হবে রাত দশটায়. Shop will close at 10 PM',
+    'mix'
+  )">📢 TTS (BN + EN)</button>
+
+  <hr>
+
+  <label>Schedule Play</label>
+  <input type="time" id="playTime">
+  <button onclick="schedulePlay()">⏱ Schedule</button>
+
+  <p id="status">Status: Connecting…</p>
+</div>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+
+</body>
+</html>
 
