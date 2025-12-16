@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+  text-align:center;
+  padding:20px;
+}
+
+#login, #panel {
+  max-width:320px;
+  margin:auto;
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+}
+
+input, button {
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:6px;
+  border:none;
+}
+
+button {
+  background:#22c55e;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover { opacity:0.9 }
+
+hr {
+  margin:15px 0;
+  border:1px solid #334155;
+}
